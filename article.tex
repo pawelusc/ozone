@@ -1,6 +1,5 @@
-\documentclass[12pt,pra,aps,superscriptaddress]{revtex4-2}
+\documentclass[12pt,a4paper,prb,aps,superscriptaddress]{revtex4}
 \usepackage{amsmath,amssymb,physics}
-\usepackage{hyperref} % Clickable links in the document
 \usepackage{graphicx} % For figures with images
 \usepackage{natbib} % bibliography
 \setcitestyle{super, sort&compress, comma} % chemistry style
@@ -37,7 +36,7 @@ E{\"o}tv{\"o}s Lor{\'a}nd University, P{\'a}zm{\'a}ny P{\'e}ter stny. 1/A,
 Budapest, Hungary}
 
 \author{John F. Stanton}
-\email[Electronic address: ]{jfstanton@gmail.com}
+\email[Electronic address: ]{jfstanton137@gmail.com}
 \affiliation{Quantum Theory Project, Departments of Chemistry and Physics, University of Florida, Gainesville, FL, USA 32611}
 \affiliation{Laboratory of Theoretical Chemistry, Institute of Chemistry, ELTE
 E{\"o}tv{\"o}s Lor{\'a}nd University, P{\'a}zm{\'a}ny P{\'e}ter stny. 1/A,
@@ -158,7 +157,7 @@ to this issue.
     \label{fig:ozone_intro}
 \end{figure}
 
-\section{Methods}
+\section{Theory}
 
 Ozone is a $C_{2v}$ molecule (we are following the Mulliken's
 convention~\cite{Mulliken:55:symnot} by placing the molecule in the $yz$ plane
@@ -325,16 +324,16 @@ $123\pm8$~meV, see Table~\ref{tab:vertical_gap} for details.
 \end{figure}
 
 Figure~\ref{fig:sim_vs_dyke} compares the simulated spectrum to the
-experimental one taken from reference~\cite{dyke:O3:74}. A comparison of the
-simulated and experimental spectra is presented on
-Figure~\ref{fig:sim_vs_dyke} and shows a good match. Peak A is known to be a
-hot band.~\cite{KDC:O3:92} The simulation reproduces well the consecutive
-increase in the intensities of peaks B, C, D, and E. The spacing between these
-peaks is also well reproduced. Drop in the intensity of peak F is also
-captured by the simulation. Starting from peak G the simulation shows
-discrepancy with the experiment. A sudden drop in the intensity past the peak
-H is not observed in the simulation. We discuss a likely source of this
-mismatch later.
+experimental one taken from reference~\cite{dyke:O3:74}. Our simulation allows
+for an additional element of analysis of the simulated spectrum.
+Figure~\ref{fig:ozone_overlay} presents a decomposition of the simulated
+spectrum from Figure~\ref{fig:sim_vs_dyke}. All lines that contribute to the
+spectrum are marked individually and are color-coded indicating which
+electronic state's transition intensity the peak draws from. The total
+envelope of the spectrum is also decomposed showing contributions from both
+states. Our simulation locates the minimum of the conical intersection at
+$3174$~cm$^{-1}$ above the origin ($12.92$~eV) that is marked on the figure as
+CI.
 
 \begin{figure}
     \includegraphics[width=10 cm]{figures/spectrum_overline}
@@ -343,33 +342,17 @@ mismatch later.
         scale in eV. Top axis shows energy offset from the origin in
         cm$^{-1}$. Stick spectrum shows positions and intensities of all
         simulated states. Blue color corresponds to the oscillator strength
-        originating from the $^2$A$_1$ basis state while the red ones
-        correspond to $^2$B$_2$. Gray vertical lines with captions on top
+        originating from the $^2$A$_1$ basis state while the red one
+        corresponds to $^2$B$_2$. Gray vertical lines with captions on top
         indicate positions of features as measured by the PFI-ZEKE
-        experiment.~\cite{Willitsch:O3ZEKE:2005} 
-        $D_0$ marks the dissociation threshold of O$_3^+$.
-        Gray dotted line marks the energy of the minimum of the conical
-        intersection (CI).
+        experiment.~\cite{Willitsch:O3ZEKE:2005} The simulated spectrum was
+        shifted to match the PFI-ZEKE experimental origin. $D_0$ marks the
+        dissociation threshold of O$_3^+$. Gray dotted line marks the energy
+        of the minimum of the conical intersection (CI).
     }
     \label{fig:ozone_overlay}
 \end{figure}
 
-Our simulation allows for an additional element of analysis of the simulated
-spectrum. Figure~\ref{fig:ozone_overlay} presents the same simulated spectrum
-as in Figure~\ref{fig:sim_vs_dyke} with additional information on the
-decomposition of the spectrum.  All lines that contribute to the spectrum are
-marked individually and in two different colors. The spectrum shows that peaks
-A and B are almost purely of the $^2$A$_1$ character. Starting from peak C
-each the contributions from two states are equally important, it is also clear
-that each peak of the low-resolution spectrum has in fact contributions from
-many vibronic peaks. At the energy of about $2000$~cm$^{-1}$ above the origin
-the density of vibronic peaks increases significantly. This value can be
-compared to the minimum of the conical intersection, which our simulation
-locates at $3174$~cm$^{-1}$ above the origin ($12.92$~eV). Our simulation is
-incapable of accounting for dissociation of the molecule, therefore the we
-expect a discrepancy with the experiment as the energy gets closer to the
-dissociation threshold located at $4840$~cm$^{-1}$ above the
-origin.~\cite{Willitsch:O3ZEKE:2005}
 
 \begin{figure}
     \includegraphics[width=10cm]{figures/spectrum_assigned.pdf}
@@ -391,7 +374,7 @@ vibrational state ($\nu _1 \nu_2 \nu_3$), where $\nu _i$ is the number of
 quanta in mode $i$ with $i=1$ for the symmetric stretch, $i=2$ for the
 symmetric bend and $i=3$ for the asymmetric stretch. The assigned spectrum
 shows progressions in the symmetric bend. There is one such progression in
-each electronic states.  Additionally for each state, there is also another
+each electronic state.  Additionally for each state, there is also another
 progression in the symmetric bend with one excitation in the symmetric
 stretch.
 
@@ -418,34 +401,7 @@ align our simulation. The origin of the simulated spectrum is located
 $170$~cm$^{-1}$ lower than the experimental origin which was experimentally
 observed at $101,020.5$~cm$^{-1}$.\cite{Willitsch:O3ZEKE:2005} This is within
 our error estimate for the vertical ionization energy
-($30$~meV$=240$~cm$^{-1}$).  Once the origin locations are aligned the
-comparison shows a good match between the simulation and the experiment.
-Especially the states with an oscillator strength originating from the A$_1$
-state are well aligned with the experimental features. 
-
-States close to the origin of the band are similar to the non-coupled states.
-The origin peak is of a clear A$_1(0,0,0)$ character, the first two
-excitations in the symmetric bend, A$_1(0,1,0)$ and A$_1(0,2,0)$ are also very
-similar to the non-coupled states, while the higher excitations in this
-progression are showing large mixing. The same progression with one
-vibrational quantum in the symmetric stretch is more interesting. The first of
-its peaks is very well aligned with an experimentally visible feature, which
-was previously assigned as the origin of the second state. The second peak in
-this series, the first combination state A$_1(1,1,0)$, has very high
-similarity to its uncoupled version. It is a good candidate to assign the
-experimental, unassigned feature above $102,600$~cm$^{-1}$.
-
-States with an oscillator strength from the B$_2$ state are on the other hand
-not aligning well with the experiment. First such peak, close to the $12.64$~eV
-mark on the Figure~\ref{fig:sim_vs_zeke}, is of a vibronic character and we
-assign it as a A$_1$(0,0,1) state which gains intensity thanks to the coupling
-to the B$_2$ state. This vibronic peak lies in the part of the spectrum marked
-as pollution due to water. The origin of the B$_2$ state is very similar to
-the uncoupled B$_2(0,0,0)$ state, but it is located in an empty area of the
-experimental spectrum. The next peak, slightly above the $12.76$~eV mark on
-Figure~\ref{fig:sim_vs_zeke}, corresponds to the one excitation of the symmetric
-bend in the B$_2$ state, but as the label on the figure shows, it is only
-about $55$\% similar to the uncoupled state.
+($30$~meV$=240$~cm$^{-1}$).  
 
 \begin{figure}
     \includegraphics[width=16 cm]{figures/sim_vs_TarroniCarter}
@@ -456,18 +412,11 @@ about $55$\% similar to the uncoupled state.
     \label{fig:sim_vs_tarronicarter}
 \end{figure}
 
-Finally, we compare our simulation to an earlier accurate simulation, the work
-of Tarroni and Carter from 2011.~\cite{tarroni:O3:2011} Both spectra show a
-good match to the experiment and agree in the assignment of the first
-progression in the bending mode. The previous simulation, however, shows
-smaller spacing between other lines, showing much higher congestion of the
-spectrum. Additionally the origin of the second state falls at lower energy
-aligning well with the peak that was assigned in the PFI-ZEKE also as the
-origin of the second state.  While an additional simulation of the line
-intensities would allow for the most complete comparison to the experimental
-spectrum, the strong alignment of the simulated peaks of a leading
-A$_1$ character with the experimental features leads us to believe that our
-simulation offers the best assignment of the spectrum to date.
+Lastly, we compare our simulation to an earlier accurate simulation, the work
+of Tarroni and Carter from 2011.~\cite{tarroni:O3:2011}
+Figure~\ref{fig:sim_vs_tarronicarter} presents a comparison of lines from both
+simulations. The comparison includes only the lines from the earlier
+simulation that were tabulated with an assignment. 
 
 \begin{table}
     \renewcommand{\arraystretch}{0.8}% Tighter
@@ -505,6 +454,74 @@ $  3047$ &  $A_1(050)$ & $ +0.76~A_1(050) +0.13~A_1(130)$ \\
     \end{tabular}
 \end{table}
 
+
+\section{Discussion} 
+
+We first discuss the comparison of our simulations to the lower-resolution
+experimental spectrum presented on Figure~\ref{fig:sim_vs_dyke}. The peak A is
+known to be a hot band.~\cite{KDC:O3:92} The simulation reproduces well the
+consecutive increase in the intensities of peaks B, C, D, and E. The spacing
+between these peaks is also well reproduced. Drop in the intensity at the peak
+F is captured by the simulation. Starting from the peak G, the simulation
+shows discrepancy with the experiment. A sudden drop in the intensity past the
+peak H is not observed in the simulation. We discuss a likely source of this
+mismatch later.
+
+The decomposition of the spectrum presented on Figure~\ref{fig:ozone_overlay}
+introduces additional insight. The spectrum shows that peaks B and C are
+almost purely of the $^2$A$_1$ character. Starting from the peak D, the
+contributions from two states are equally important. It is also clear that the
+following peaks arise as mixtures of many vibronic peaks. At the energy of
+about $2000$~cm$^{-1}$ above the origin the density of vibronic peaks
+increases significantly. This value can be compared to the minimum of the
+conical intersection located about $1000$~cm$^{-1}$ higher. Our
+simulation is incapable of accounting for dissociation of the molecule,
+therefore we expect a discrepancy with the experiment as the energy gets
+closer to the dissociation threshold located at $4840$~cm$^{-1}$ above the
+origin.~\cite{Willitsch:O3ZEKE:2005}
+
+Moving on to the comparison with the high-resolution spectrum, see
+Figure~\ref{fig:sim_vs_zeke}, reveals more details. Lines of the PFI-ZEKE
+experiment and our simulation show a good match. Especially the states with
+an oscillator strength originating from the A$_1$ state are well aligned with
+the experimental features. States close to the origin are similar to the
+non-coupled states. The origin peak is of a clear A$_1(0,0,0)$ character, the
+first two excitations in the symmetric bend, A$_1(0,1,0)$ and A$_1(0,2,0)$ are
+also very similar to the non-coupled states, while the higher excitations in
+this progression are showing large mixing. The same progression with one
+vibrational quantum in the symmetric stretch is more interesting. The first of
+its peaks is very well aligned with an experimentally visible feature, which
+was previously assigned as the origin of the second state. The second peak in
+this series, the first combination state A$_1(1,1,0)$, has very high
+similarity to its uncoupled version. It is a good candidate to assign the
+experimental, unassigned feature above $102,600$~cm$^{-1}$.
+
+States with an oscillator strength from the B$_2$ state are, on the other
+hand, not aligning well with the experiment. First such peak, close to the
+$12.64$~eV mark on Figure~\ref{fig:sim_vs_zeke}, is of a vibronic
+character and we assign it as a A$_1$(0,0,1) state which gains intensity
+thanks to the coupling to the B$_2$ state. This vibronic peak lies in the part
+of the spectrum marked as pollution due to water. The origin of the B$_2$
+state is very similar to the uncoupled B$_2(0,0,0)$ state, but it is located
+in an empty area of the experimental spectrum. The next peak, slightly above
+the $12.76$~eV mark on Figure~\ref{fig:sim_vs_zeke}, corresponds to the one
+excitation of the symmetric bend in the B$_2$ state, but as the label on the
+figure shows, it is only about $55$\% similar to the uncoupled state.
+
+The comparison to the earlier simulation on
+Figure~\ref{fig:sim_vs_tarronicarter} shows that both present a good match to
+the experiment. Both simulations also agree in the assignment of the first
+progression in the bending mode. The previous simulation, however, shows
+smaller spacing between the remaining lines, showing much higher congestion of
+the spectrum. Additionally the origin of the second state falls at lower
+energy aligning well with the peak that was assigned in the PFI-ZEKE
+experiment also as the origin of the second state. While an additional
+simulation of the line intensities would allow for the most complete
+comparison to the experimental spectrum, the strong alignment of the simulated
+peaks of a leading A$_1$ character with the experimental features leads us to
+believe that our simulation offers the best assignment of the spectrum to
+date.
+
 \section{Summary and Conclusions} 
 
 We have simulated the vibronic effects in the photoelectron spectrum of the
@@ -531,14 +548,13 @@ This project was initiated when three of the authors (P.W, P.G.S. and J.F.S)
 were in Budapest, where J.F.S. was serving as a recipient of the John von
 Neumann Award in STEM bestowed by the Fulbright Foundation. Additional
 research presented here benefited from the NSF Center for Chemical Innovation
-Phase I (grant no. CHE-2221453) and U.S. Department of Energy, Basic Energy
+Phase I (grant no. CHE-2221453) and the U.S. Department of Energy, Basic Energy
 Sciences (grant no. DE-FG02-05ER15629).  All the authors of this research wish
 Prof. Bartlett a happy ninth decade of life, and hope that he continues to
 stimulate others in the field with his creative insights.
 
 \clearpage
 
-\bibliographystyle{prf}
 \bibliography{allrefs}
 
 
