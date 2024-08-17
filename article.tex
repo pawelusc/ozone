@@ -1,4 +1,4 @@
-\documentclass[12pt,prb,aps]{revtex4-2}
+\documentclass[12pt,pra,aps,superscriptaddress]{revtex4-2}
 \usepackage{amsmath,amssymb,physics}
 \usepackage{hyperref} % Clickable links in the document
 \usepackage{graphicx} % For figures with images
@@ -16,39 +16,139 @@
 
 \begin{document}
 
-\title{Vibronic effects in the photoelectron spectrum of ozone}
+\title{Vibronic Coupling Effects in the Photoelectron Spectrum of Ozone: A
+Coupled-Cluster Approach}
 
-% \author{Pawe{\l} W{\'o}jcik}
-% \email[Electronic address: ]{pawel.wojcik@usc.edu}
-% \affiliation{Department of Chemistry, University of Southern California, Los Angeles, California 90089, USA}
-% \affiliation{Laboratory of Theoretical Chemistry, Institute of Chemistry, ELTE E{\"o}tv{\"o}s Lor{\'a}nd University, H-1518 Budapest 112, Hungary}
-% \author{Anna I. Krylov}
-% \email[Electronic address: ]{krylov@usc.edu}
-% \affiliation{Department of Chemistry, University of Southern California, Los Angeles, California 90089, USA}
-% \author{John F. Stanton}
-% \affiliation{Quantum Theory Project, Department of Chemistry, University of Florida, Gainesville, Florida 32611, USA}
-% \affiliation{Laboratory of Theoretical Chemistry, Institute of Chemistry, ELTE E{\"o}tv{\"o}s Lor{\'a}nd University, H-1518 Budapest 112, Hungary}
+\author{Pawe{\l} W{\'o}jcik}
+\affiliation{Department of Chemistry, University of Southern California, Los Angeles, California 90089, USA}
+\affiliation{Laboratory of Theoretical Chemistry, Institute of Chemistry, ELTE
+E{\"o}tv{\"o}s Lor{\'a}nd University, P{\'a}zm{\'a}ny P{\'e}ter stny. 1/A,
+Budapest, Hungary}
+
+\author{Anna I. Krylov}
+\affiliation{Department of Chemistry, University of Southern California, Los Angeles, California 90089, USA}
+
+\author{Hannah Reisler}
+\affiliation{Department of Chemistry, University of Southern California, Los Angeles, California 90089, USA}
+
+\author{P{\'e}ter G. Szalay}
+\affiliation{Laboratory of Theoretical Chemistry, Institute of Chemistry, ELTE
+E{\"o}tv{\"o}s Lor{\'a}nd University, P{\'a}zm{\'a}ny P{\'e}ter stny. 1/A,
+Budapest, Hungary}
+
+\author{John F. Stanton}
+\email[Electronic address: ]{jfstanton@gmail.com}
+\affiliation{Quantum Theory Project, Departments of Chemistry and Physics, University of Florida, Gainesville, FL, USA 32611}
+\affiliation{Laboratory of Theoretical Chemistry, Institute of Chemistry, ELTE
+E{\"o}tv{\"o}s Lor{\'a}nd University, P{\'a}zm{\'a}ny P{\'e}ter stny. 1/A,
+Budapest, Hungary}
 
 \date{\today}
 
-\begin{abstract}Abstract\end{abstract}
-
-% TODO: Add that in this work we use the Mulliken's notation for state
-% symmetry
+\begin{abstract}
+One of the most important areas of application of equation-of-motion coupled
+cluster (EOM-CC) theory is to the prediction, simulation and analysis of
+various types of electronic spectra.   In this work, the EOM-CC method known
+as EOMIP-CC is applied to the closely lying and coupled pair of states of the
+ozone cation -- ${\tilde X}^2A_1$ and ${\tilde A}^2B_2$ -- using sophisticated
+approaches that extend to the full singles, doubles, triples and quadruples
+model (EOMIP-CCSDTQ).   Combined with a venerable and powerful method for
+calculating vibronic spectra from the Hamiltonian produced by EOMIP-CC
+calculations, this research provides a spectrum that is in good agreement with
+the photoelectron spectrum of ozone.   An important result here is that the
+calculations suggest that the adiabatic gap separating these two electronic
+states is somewhat smaller than currently thought; an assignment of the
+simulated spectrum together with the more precise band positions of the
+experimental measurements suggests that this energy gap is 1366$\pm$65
+cm$^{-1}$.
+\end{abstract}
 
 \maketitle
 
 \section{Introduction}
 
-Ozone is a C$_{2v}$ molecule with three normal modes: symmetric stretch,
-symmetric bend, and asymmetric stretch. The asymmetric stretch is of a b$_2$
-symmetry. The two lowest electronic states of the ozone cation are close in
-energy. The lower state is fully symmetric while the higher one is of the
-B$_2$ symmetry, the same symmetry as the asymmetric stretch. The close
-energetic separation and the matching symmetry of the asymmetric stretch
-results in significant vibronic effects appearing in the ozone photoelectron
-spectrum. Figure~\ref{fig:ozone_intro} presents a graphical summary of this
-information.
+Amongst the brotherhood of triatomic molecules, it cannot be argued that water
+(H$_2$O) is the most important, the most highly studied, and the most well
+understood.  Beyond H$_2$O, there are many triatomic molecules that have an
+environmental, technological or biological importance, have been subjected to
+many studied and are understood to various levels of detail.  Perhaps the most
+interesting such case is ozone (O$_3$), which has a vast number of important
+properties, a very rich history of study \cite{chappuis}, and – unlike the
+relatively simple water molecule – a profound quantum-mechanical complexity
+\cite{Babikov:anomalousOzone:2003}.  In the latter context, while we think of
+(and an NMR experiment would reveal) as two distinct kinds of oxygen Atoms in
+ozone, the full molecular Hamiltonian does not distinguish between the two
+types, with the three equivalent structures separated by a barrier that lies
+tantalizingly close to the O$_3$ $\rightarrow$ O$_2$ + O dissociation
+threshold (102.4 kJ/mol) \cite{Ruscis:ATcT:2022}. In reality, the energy
+levels of ozone all have a near triple ($e+a$) degeneracy, albeit with a
+tunneling splitting so small that it can be ignored, along with a
+semi-infinite lifetime (despite opposing opinion
+\cite{Boggs:BerryOzone:2006}).   More than a half century ago, this intriguing
+aspect of the ozone molecule was first discussed by Berry
+\cite{Berry:Ozone:1960}.
+
+Beyond the structural aspects of ozone, other mysteries center around this
+curious molecule.  For example, the distribution of the eighteen distinct
+$^{16}$O/$^{17}$O/$^{18}$O isotopologues in the Earth’s atmosphere differs
+from what is expected based on the natural isotopic abundance, a puzzle that
+has been open for more than three decades
+\cite{Mauersberger:OzoneMystery:1990}. 
+
+Amongst quantum chemists, ozone has a notorious history, with its strong
+biradical character causing significant difficulties in calculations of its
+ostensibly simple ground state molecular properties.  An early 1989 study
+\cite{Stanton:Ozone:1989, Stanton:Ozone:1989b} by the Bartlett group and
+collaborators found that the CCSD+T(CCSD) method predicted that the molecular
+equilibrium structure of ozone would have $C_s$ symmetry (that is, the
+asymmetric stretching harmonic frequency predicted by this method was
+imaginary), a finding that led to a search for better treatment of
+non-iterative triple excitations, ultimately leading to the well-known CCSD(T)
+treatment \cite{Raghavachari:89, Urban:ccsd(t):1985, GenrefCCSD(T):93}. While
+CCSD(T) and higher-level coupled-cluster methods available today
+\cite{kucharski:ccsdtq:1992, Kallay:CCHigh, Matthews:ncc:2015} do a good job
+in predicting the molecular vibrational potential, an elaborate multireference
+configuration interaction study by Dawes {\it et al.} has done an excellent
+job on the entire ground-state surface out to the dissociation limit
+\cite{Dawes:ozone:2013}. As such, the quantum chemical understanding and
+fidelity for the ground electronic state of O$_3$ is now at a mature level.
+
+Qualitatively, the challenge posed to electronic structure by ozone ultimately
+arises from its closely spaced highest-occupied ($b_2$) and lowest-unoccupied
+($a_1$) molecular orbitals (HOMO and LUMO, respectively).  The two electron
+configurations $[\cdots]b_2^2 a_1^0$ and $[\cdots]b_2^0 a_1^2$ mix strongly,
+posing the aforementioned challenges with (especially single-reference)
+quantum chemical methods.   Another consequence of the identity and energetic
+proximity of these two orbitals is that the ozone cation (which is
+isoelectronic to the NO$_2$ radical) has closely lying $^2A_1$ and $^2B_2$
+electronic states.   Like the associated states in NO$_2$, both of these
+states are plagued by orbital symmetry-breaking problems
+\cite{Davidson:SymmBreak:76}, a problem that greatly complicates
+quantum-chemical efforts to them.   One of the many accomplishments of the
+Bartlett group has been the integral role played by them in the development of
+equation-of-motion coupled-cluster theory \cite{Stanton:93:EOMCC,
+Nooijen:EOMEA:95, Bartlett:CC_review:07} (EOM-CC, also known as linear
+response coupled-cluster theory \cite{Koch:90:LinResp}). These methods provide
+a very efficient and simple way to study certain classes of what are often
+termed ``multireference problems" \cite{Krylov:EOMRev:07}, and are ideally
+suited to studying many reactive intermediates, radicals, biradicals and
+electronically excited states.   From a somewhat wider viewpoint, the
+existence of closely spaced electronic states always carries the potential for
+(possibly strong) vibronic coupling, a phenomenon that can play an important
+role in molecular dynamics and spectroscopy.  Indeed, one of the great
+successes of EOM-CC methods has been in their ability -- if and only if
+combined with vibronic coupling models -- to enable high-quality simulations
+of complicated electronic spectra.   Such work provides important insight into
+the nature of vibronic coupling in molecular systems, as has been exemplified
+by various application studies (for example, see Refs.~\cite{Stanton:NO3:07}
+and~\cite{Koppel:02}).
+
+Our contribution to this issue paying homage to the career and accomplishments
+of R.J. Bartlett consists of an application of a vibronic coupling model
+parametrized by EOM-CC calculations to the photoelectron spectrum of ozone.
+We trust that this combination of methodology applied to a molecule that has
+been extensively studied by the Bartlett group is an appropriate contribution
+to this issue.
 
 \begin{figure}
     \includegraphics[width = 16 cm]{./figures/ozone_intro}
@@ -59,6 +159,18 @@ information.
 \end{figure}
 
 \section{Methods}
+
+Ozone is a $C_{2v}$ molecule (we are following the Mulliken's
+convention~\cite{Mulliken:55:symnot} by placing the molecule in the $yz$ plane
+and aligning the molecular symmetry axis with the $z$ direction) with three
+normal modes: symmetric stretch, symmetric bend, and asymmetric stretch.  The
+asymmetric stretch is of a $b_2$ symmetry. The two lowest electronic states of
+the ozone cation are close in energy. The lower state is fully symmetric while
+the higher one is of the $B_2$ symmetry, the same symmetry as the asymmetric
+stretch. The close energetic separation and the matching symmetry of the
+asymmetric stretch results in significant vibronic effects appearing in the
+ozone photoelectron spectrum.  Figure~\ref{fig:ozone_intro} presents a
+graphical summary of this information.
 
 We simulate the vibronic states of the ozone cation using the model
 Hamiltonian of K{\"o}ppel, Domcke, and Cederbaum (KDC
@@ -415,9 +527,14 @@ energy part of the spectrum.
 
 \section{Acknowledgments} 
 
-This work was funded by the NSF Center for Chemical Innovation Phase I (grant
-no. CHE-2221453) and U.S. Department of Energy, Basic Energy Sciences (grant
-no. DE-FG02-05ER15629).
+This project was initiated when three of the authors (P.W, P.G.S. and J.F.S)
+were in Budapest, where J.F.S. was serving as a recipient of the John von
+Neumann Award in STEM bestowed by the Fulbright Foundation. Additional
+research presented here benefited from the NSF Center for Chemical Innovation
+Phase I (grant no. CHE-2221453) and U.S. Department of Energy, Basic Energy
+Sciences (grant no. DE-FG02-05ER15629).  All the authors of this research wish
+Prof. Bartlett a happy ninth decade of life, and hope that he continues to
+stimulate others in the field with his creative insights.
 
 \clearpage
 
